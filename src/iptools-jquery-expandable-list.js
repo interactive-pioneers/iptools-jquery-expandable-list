@@ -32,6 +32,10 @@
 
   IPTExpandableList.prototype = {
 
+    /**
+     * initialize IPTExpandableList
+     * @returns {undefined}
+     */
     init: function() {
 
       this.addEventListeners();
