@@ -10,7 +10,12 @@
 
   var pluginName = 'iptExpandableList';
   var defaults = {
-    visibleItems: 5
+    visibleItems: 5,
+    showMoreButtonLabel: 'Show more',
+    showLessButtonLabel: 'Show less',
+    showMoreButtonClass: 'button--show-more',
+    showLessButtonClass: 'button--show-less',
+    animationDuration: 500
   };
 
   /**
@@ -38,21 +43,50 @@
      */
     init: function() {
 
-      this.$element.children('li:gt(' + (this.settings.visibleItems - 1) + ')')
-        .wrapAll('<ul/>')
-        .wrapAll('<li/');
+      this.$button = $('<button/>')
+        .addClass(this.settings.showMoreButtonClass)
+        .text(this.settings.showMoreButtonLabel);
+
+      var $items = this.$element.children('li');
+
+      if ($items.length > this.settings.visibleItems) {
+        $items
+          .filter(':gt(' + (this.settings.visibleItems - 1) + ')')
+          .wrapAll('<ul/>')
+          .parent()
+          .wrapAll('<li/>')
+          .parent()
+          .hide();
+        this.$element.after(this.$button);
+      }
 
       this.addEventListeners();
 
     },
 
     /**
-     * toggle items
+     * toggle list items
      * @returns {undefined}
      */
-    toggle: function() {
+    toggle: function(event) {
 
-      
+      var self = event.data;
+      self.$element
+        .children('li')
+        .last()
+        .slideToggle(self.settings.animationDuration);
+
+      if (self.$button.hasClass(self.settings.showLessButtonClass)) {
+        self.$button
+          .removeClass(self.settings.showLessButtonClass)
+          .addClass(self.settings.showMoreButtonClass)
+          .text(self.settings.showMoreButtonLabel);
+      } else {
+        self.$button
+          .removeClass(self.settings.showMoreButtonClass)
+          .addClass(self.settings.showLessButtonClass)
+          .text(self.settings.showLessButtonLabel);
+      }
 
     },
 
@@ -62,7 +96,7 @@
      */
     addEventListeners: function() {
 
-      this.window.on('click' + '.' + this._name, null, this, this.toggle);
+      this.$button.on('click' + '.' + this._name, null, this, this.toggle);
 
     },
 
@@ -71,7 +105,7 @@
      * @returns {undefined}
      */
     destroy: function() {
-      // this.$element.off('click' + '.' + this._name);
+      this.$element.off('click' + '.' + this._name);
       this.$element.removeData('plugin_' + pluginName);
     }
 
