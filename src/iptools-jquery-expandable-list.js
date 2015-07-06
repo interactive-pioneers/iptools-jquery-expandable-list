@@ -21,7 +21,7 @@
    */
   function IPTExpandableList(element, options) {
 
-    this.element = $(element);
+    this.$element = $(element);
     this.settings = $.extend({}, defaults, options);
     this._defaults = defaults;
     this._name = pluginName;
@@ -38,7 +38,21 @@
      */
     init: function() {
 
+      this.$element.children('li:gt(' + (this.settings.visibleItems - 1) + ')')
+        .wrapAll('<ul/>')
+        .wrapAll('<li/');
+
       this.addEventListeners();
+
+    },
+
+    /**
+     * toggle items
+     * @returns {undefined}
+     */
+    toggle: function() {
+
+      
 
     },
 
@@ -48,7 +62,7 @@
      */
     addEventListeners: function() {
 
-      this.window.on('scroll' + '.' + this._name, null, this, this.handleScroll);
+      this.window.on('click' + '.' + this._name, null, this, this.toggle);
 
     },
 
