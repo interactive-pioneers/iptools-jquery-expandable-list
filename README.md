@@ -31,6 +31,17 @@ Show only a defined number of list elements on page load and more on demand.
 </script>
 ```
 
+## Options
+
+Name                | Default                    | Type    | Description
+:-------------------|:---------------------------|:--------|:-----------
+visibleItems        | `5`                        | int     | Number of initially visible items
+showMoreButtonLabel | `Show more`                | string  | Label of show more button
+showLessButtonLabel | `Show less`                | string  | Label of show less button
+showMoreButtonClass | `button--show-more`        | string  | Class of show more button
+showLessButtonClass | `button--show-less`        | string  | Class of show less button
+animationDuration   | `500`                      | int     | Animation speed in miliseconds. 
+
 ## Contributions
 
 ### Bug reports, suggestions
