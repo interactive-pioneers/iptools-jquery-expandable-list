@@ -8,6 +8,7 @@
       visibleItems: 2
     };
     var object = null;
+    var $element = $('.list');
 
     describe('init', function() {
 
