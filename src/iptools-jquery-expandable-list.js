@@ -15,6 +15,7 @@
     showLessButtonLabel: 'Show less',
     showMoreButtonClass: 'button--show-more',
     showLessButtonClass: 'button--show-less',
+    initializedClass: 'initialized',
     animationDuration: 500
   };
 
@@ -61,6 +62,8 @@
       }
 
       this.addEventListeners();
+
+      this.$element.addClass(this.settings.initializedClass);
 
     },
 
