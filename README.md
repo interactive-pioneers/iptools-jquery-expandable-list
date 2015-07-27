@@ -40,6 +40,7 @@ showMoreButtonLabel | `Show more`                | string  | Label of show more 
 showLessButtonLabel | `Show less`                | string  | Label of show less button
 showMoreButtonClass | `button--show-more`        | string  | Class of show more button
 showLessButtonClass | `button--show-less`        | string  | Class of show less button
+initializedClass    | `initialized`              | string  | Class added to element after initialization
 animationDuration   | `500`                      | int     | Animation speed in miliseconds. 
 
 ## Contributions
