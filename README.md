@@ -41,7 +41,7 @@ showLessButtonLabel | `Show less`                | string  | Label of show less 
 showMoreButtonClass | `button--show-more`        | string  | Class of show more button
 showLessButtonClass | `button--show-less`        | string  | Class of show less button
 initializedClass    | `initialized`              | string  | Class added to element after initialization
-animationDuration   | `500`                      | int     | Animation speed in miliseconds. 
+animationDuration   | `500`                      | int     | Animation speed in miliseconds.
 
 ## Contributions
 
@@ -69,4 +69,4 @@ Following tasks are there to help with development:
 - `grunt build` minify source to dist/
 
 ## Licence
-Copyright © 2015 Interactive Pioneers GmbH. Licenced under [GPLv3](LICENSE).
+Copyright © 2015-2017 Interactive Pioneers GmbH. Licenced under [GPL-3](LICENSE).
