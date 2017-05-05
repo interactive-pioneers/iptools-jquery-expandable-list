@@ -8,12 +8,12 @@
       visibleItems: 2
     };
     var object = null;
-    var $element = $('.list');
+    var selector = '.list';
 
     describe('init', function() {
 
       beforeEach(function() {
-        object = $element.iptExpandableList(config);
+        object = $(selector).iptExpandableList(config);
       });
 
       it('expected to construct object', function() {
