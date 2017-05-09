@@ -8,7 +8,7 @@ Show only a defined number of list elements on page load and more on demand.
 
 ## Requirements
 
-- jQuery 1.11.3 or greater
+- jQuery >=1.11.3 <4.0.0
 
 ## Example
 
